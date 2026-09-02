@@ -2,33 +2,83 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Test Doc 4 — Styled Card</title>
+<title>Test Doc 4 — Interactive Card</title>
 <style>
-  body { font-family: -apple-system, sans-serif; background: #0b0d10; color: #eee; padding: 24px; }
-  .card {
-    max-width: 420px;
-    margin: 0 auto;
-    padding: 24px;
-    border-radius: 16px;
+  body { font-family: -apple-system, sans-serif; background: #0b0d10; color: #eee; margin: 0; padding: 28px; }
+  .card { max-width: 460px; margin: 0 auto; padding: 26px; border-radius: 16px;
     background: linear-gradient(160deg, #1a1e2a, #10131c);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    border: 1px solid #2a2f3d;
-  }
-  .card h1 { font-size: 20px; margin: 0 0 8px; color: #ffb454; }
-  .card p { font-size: 14px; line-height: 1.5; color: #aab; }
-  .badge {
-    display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px;
-    border-radius: 999px; background: #ffb454; color: #1a1000; margin-top: 12px;
-  }
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4); border: 1px solid #2a2f3d; }
+  h1 { font-size: 18px; margin: 0 0 4px; color: #ffb454; }
+  .meta { font-size: 12px; color: #8891a5; margin-bottom: 18px; }
+
+  .tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+  .tab-btn { flex: 1; padding: 8px 0; border: 1px solid #2a2f3d; background: #161922;
+    color: #aab; font-size: 12.5px; font-weight: 600; border-radius: 8px; cursor: pointer; }
+  .tab-btn.active { background: #ffb454; color: #1a1000; border-color: #ffb454; }
+  .panel { display: none; font-size: 13.5px; color: #ccd; line-height: 1.6; min-height: 70px; }
+  .panel.active { display: block; }
+
+  .row { display: flex; align-items: center; gap: 10px; margin-top: 18px; }
+  .like-btn { background: #ffb454; color: #1a1000; border: none; border-radius: 8px;
+    padding: 8px 16px; font-size: 13px; font-weight: 700; cursor: pointer; }
+  .like-btn:active { transform: scale(0.97); }
+  .count { font-size: 13px; color: #aab; }
+
+  .name-row { margin-top: 18px; }
+  .name-row input { width: 100%; box-sizing: border-box; padding: 9px 12px; border-radius: 8px;
+    border: 1px solid #2a2f3d; background: #161922; color: #eee; font-size: 13px; }
+  .greeting { margin-top: 10px; font-size: 13.5px; color: #ffb454; min-height: 18px; }
 </style>
 </head>
 <body>
 <div class="card">
-  <h1>Test Document 4: Styled Card</h1>
-  <p>This is the heaviest CSS case in the set — gradients, shadows, a dark palette, flex-free
-  layout via plain block/margin centering. If Notion's sync strips or sandboxes &lt;style&gt;
-  blocks, this is the one that will look wrong.</p>
-  <span class="badge">DOC-4-STYLED-CARD</span>
+  <h1>Interactive Card</h1>
+  <div class="meta">Edited by a teammate · revision 2 — now fully interactive, no links</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="overview" type="button">Overview</button>
+    <button class="tab-btn" data-tab="details" type="button">Details</button>
+    <button class="tab-btn" data-tab="notes" type="button">Notes</button>
+  </div>
+  <div class="panel active" id="panel-overview">This card proves buttons, tabs, and a text
+  input all work live inside a Notion embed — no page navigation involved, so nothing can
+  break the frame.</div>
+  <div class="panel" id="panel-details">Everything here runs in plain inline JavaScript, no
+  external scripts, no network calls. Safe to embed anywhere.</div>
+  <div class="panel" id="panel-notes">Try the like button and the name field below — both
+  update instantly with no reload.</div>
+
+  <div class="row">
+    <button class="like-btn" id="likeBtn" type="button">👍 Like</button>
+    <span class="count" id="likeCount">0 likes</span>
+  </div>
+
+  <div class="name-row">
+    <input type="text" id="nameInput" placeholder="Type your name">
+    <div class="greeting" id="greeting"></div>
+  </div>
 </div>
+
+<script>
+  document.querySelectorAll(".tab-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".tab-btn").forEach(function (b) { b.classList.remove("active"); });
+      document.querySelectorAll(".panel").forEach(function (p) { p.classList.remove("active"); });
+      btn.classList.add("active");
+      document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
+    });
+  });
+
+  var likes = 0;
+  document.getElementById("likeBtn").addEventListener("click", function () {
+    likes += 1;
+    document.getElementById("likeCount").textContent = likes + (likes === 1 ? " like" : " likes");
+  });
+
+  document.getElementById("nameInput").addEventListener("input", function (e) {
+    var name = e.target.value.trim();
+    document.getElementById("greeting").textContent = name ? "Hello, " + name + "! 👋" : "";
+  });
+</script>
 </body>
 </html>

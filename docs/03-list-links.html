@@ -2,36 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Test Doc 3 — Lists and Links</title>
+<title>Test Doc 3 — Roadmap</title>
+<style>
+  body { font-family: -apple-system, sans-serif; background: #f4f5f7; margin: 0; padding: 28px; }
+  .card { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 14px;
+    padding: 28px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  h1 { font-size: 22px; margin: 0 0 6px; color: #1a1a1a; }
+  .meta { color: #6b7280; font-size: 13px; margin-bottom: 22px; }
+  .step { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+  .step:last-child { border-bottom: none; }
+  .dot { flex: none; width: 24px; height: 24px; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; }
+  .dot.done { background: #1a7f37; }
+  .dot.now { background: #d4a017; }
+  .dot.next { background: #9ca3af; }
+  .step-body b { display: block; font-size: 14.5px; color: #1a1a1a; }
+  .step-body span { font-size: 13px; color: #6b7280; }
+</style>
 </head>
 <body>
-<h1>Test Document 3: Nested Lists and Links</h1>
-<p>Checks nested/ordered lists and whether hyperlinks stay clickable through Notion's sync.</p>
+<div class="card">
+  <h1>Sync Test Roadmap</h1>
+  <p class="meta">Edited by a teammate · revision 2 — links removed, this version can't break</p>
 
-<h2>Ordered steps</h2>
-<ol>
-  <li>Notion connects to the GitHub repo</li>
-  <li>Notion (or a GitHub commit) edits one of these files</li>
-  <li>
-    Check whether the change round-trips:
-    <ol>
-      <li>Edit in Notion → does GitHub get a new commit?</li>
-      <li>Edit in GitHub → does Notion's view refresh?</li>
-    </ol>
-  </li>
-</ol>
-
-<h2>Reference links</h2>
-<ul>
-  <li><a href="https://github.com/jaysquared5/notion-html-sync-test">This repo on GitHub</a></li>
-  <li><a href="https://www.notion.so/">Notion</a></li>
-  <li><a href="#doc1">A same-page anchor link (may not resolve inside Notion's viewer)</a></li>
-</ul>
-
-<h2 id="doc1">Anchor target</h2>
-<p>If the link above worked, you jumped here.</p>
-
-<hr>
-<p><small>Marker: DOC-3-LIST-LINKS</small></p>
+  <div class="step">
+    <span class="dot done">✓</span>
+    <div class="step-body"><b>Notion connects to the GitHub repo</b><span>Done — repo access confirmed</span></div>
+  </div>
+  <div class="step">
+    <span class="dot done">✓</span>
+    <div class="step-body"><b>GitHub Pages serves the docs folder as a live site</b><span>Done — source set to /docs</span></div>
+  </div>
+  <div class="step">
+    <span class="dot now">●</span>
+    <div class="step-body"><b>A teammate edits a file, Notion reflects the change</b><span>In progress — this revision is the test</span></div>
+  </div>
+  <div class="step">
+    <span class="dot next">○</span>
+    <div class="step-body"><b>Edit from inside Notion, confirm a commit lands in GitHub</b><span>Not tested yet</span></div>
+  </div>
+</div>
 </body>
 </html>

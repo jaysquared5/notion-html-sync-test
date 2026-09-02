@@ -2,29 +2,41 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Test Doc 1 — Basic Text</title>
+<title>Test Doc 1 — Status Update</title>
+<style>
+  body { font-family: -apple-system, sans-serif; background: #f4f5f7; margin: 0; padding: 28px; }
+  .card { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 14px;
+    padding: 28px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 3px 10px; border-radius: 999px; background: #e6f4ea; color: #1a7f37; margin-bottom: 14px; }
+  h1 { font-size: 22px; margin: 0 0 6px; color: #1a1a1a; }
+  .meta { color: #6b7280; font-size: 13px; margin-bottom: 20px; }
+  h2 { font-size: 15px; color: #1a1a1a; margin: 22px 0 8px; }
+  p { color: #333; line-height: 1.6; font-size: 14.5px; }
+  ul { color: #333; line-height: 1.7; font-size: 14.5px; padding-left: 20px; }
+  .callout { background: #fff8e6; border-left: 3px solid #d4a017; padding: 12px 16px;
+    border-radius: 6px; margin-top: 20px; font-size: 13.5px; color: #5c4b00; }
+</style>
 </head>
 <body>
-<h1>Test Document 1: Basic Text</h1>
-<p>This is the plain-text baseline case for the Notion/GitHub HTML sync experiment. If this
-doesn't render cleanly, nothing more complex will either.</p>
+<div class="card">
+  <span class="tag">● UPDATED</span>
+  <h1>Status Update: Sync Test</h1>
+  <p class="meta">Edited by a teammate · revision 2</p>
 
-<h2>What this checks</h2>
-<p>Headings, paragraphs, and inline formatting: <strong>bold</strong>, <em>italic</em>, and
-<code>inline code</code>.</p>
+  <p>This document was just edited directly in the repo to simulate a team member updating a
+  page while others are viewing it live in Notion. If the embed refreshes on its own, or after
+  a manual reload, the sync loop is proven end to end.</p>
 
-<h2>A short list</h2>
-<ul>
-  <li>Plain paragraph text</li>
-  <li>Two heading levels</li>
-  <li>Basic inline emphasis</li>
-</ul>
+  <h2>What changed in this revision</h2>
+  <ul>
+    <li>Rebuilt as a real styled card instead of unstyled plain text</li>
+    <li>Added a status tag and a revision marker so a change is easy to spot at a glance</li>
+    <li>No links anywhere in this file — nothing here can break the embed</li>
+  </ul>
 
-<blockquote>
-  A blockquote, to see whether Notion's viewer distinguishes it visually from a regular paragraph.
-</blockquote>
-
-<hr>
-<p><small>Marker: DOC-1-BASIC-TEXT — if you can read this line, the file loaded correctly.</small></p>
+  <div class="callout">Marker: DOC-1-STATUS-UPDATE-REV2 — if you see this exact line, you're
+  looking at the latest version.</div>
+</div>
 </body>
 </html>

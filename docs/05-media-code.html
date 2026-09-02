@@ -4,27 +4,37 @@
 <meta charset="UTF-8">
 <title>Test Doc 5 — Media and Code</title>
 <style>
-  pre { background: #16181d; color: #eee; padding: 14px; border-radius: 8px; overflow-x: auto; }
-  code { font-family: "SF Mono", Menlo, monospace; font-size: 13px; }
+  body { font-family: -apple-system, sans-serif; background: #f4f5f7; margin: 0; padding: 28px; }
+  .card { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 14px;
+    padding: 28px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  h1 { font-size: 22px; margin: 0 0 6px; color: #1a1a1a; }
+  .meta { color: #6b7280; font-size: 13px; margin-bottom: 20px; }
+  .row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  pre { background: #16181d; color: #eee; padding: 14px 16px; border-radius: 10px;
+    overflow-x: auto; flex: 1; min-width: 220px; margin: 20px 0 0; }
+  code { font-family: "SF Mono", Menlo, monospace; font-size: 12.5px; }
 </style>
 </head>
 <body>
-<h1>Test Document 5: Embedded Media and Code</h1>
-<p>Checks an inline SVG image (no external file dependency) and a preformatted code block.</p>
+<div class="card">
+  <h1>Media + Code Reference</h1>
+  <p class="meta">Edited by a teammate · revision 2</p>
 
-<h2>Inline SVG</h2>
-<svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="70" cy="70" r="60" fill="#ffb454"/>
-  <text x="70" y="76" font-size="14" text-anchor="middle" fill="#1a1000" font-family="sans-serif">DOC-5</text>
-</svg>
+  <div class="row">
+    <svg width="120" height="120" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="70" cy="70" r="60" fill="#ffb454"/>
+      <text x="70" y="76" font-size="14" text-anchor="middle" fill="#1a1000" font-family="sans-serif">DOC-5</text>
+    </svg>
+    <p style="color:#333; font-size: 13.5px; line-height: 1.6; flex: 1; min-width: 200px;">
+      Inline SVG, no image file dependency. Renders anywhere this HTML does, including inside
+      a Notion embed.
+    </p>
+  </div>
 
-<h2>Code block</h2>
-<pre><code>function hello() {
-  console.log("Notion + GitHub HTML sync test — doc 5");
+  <pre><code>function hello() {
+  console.log("Notion + GitHub HTML sync test — revision 2");
 }
 hello();</code></pre>
-
-<hr>
-<p><small>Marker: DOC-5-MEDIA-CODE</small></p>
+</div>
 </body>
 </html>
