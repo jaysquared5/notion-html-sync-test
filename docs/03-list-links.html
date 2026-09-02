@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Doc 3 — Lists and Links</title>
+</head>
+<body>
+<h1>Test Document 3: Nested Lists and Links</h1>
+<p>Checks nested/ordered lists and whether hyperlinks stay clickable through Notion's sync.</p>
+
+<h2>Ordered steps</h2>
+<ol>
+  <li>Notion connects to the GitHub repo</li>
+  <li>Notion (or a GitHub commit) edits one of these files</li>
+  <li>
+    Check whether the change round-trips:
+    <ol>
+      <li>Edit in Notion → does GitHub get a new commit?</li>
+      <li>Edit in GitHub → does Notion's view refresh?</li>
+    </ol>
+  </li>
+</ol>
+
+<h2>Reference links</h2>
+<ul>
+  <li><a href="https://github.com/jaysquared5/notion-html-sync-test">This repo on GitHub</a></li>
+  <li><a href="https://www.notion.so/">Notion</a></li>
+  <li><a href="#doc1">A same-page anchor link (may not resolve inside Notion's viewer)</a></li>
+</ul>
+
+<h2 id="doc1">Anchor target</h2>
+<p>If the link above worked, you jumped here.</p>
+
+<hr>
+<p><small>Marker: DOC-3-LIST-LINKS</small></p>
+</body>
+</html>

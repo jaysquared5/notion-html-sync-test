@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Doc 2 — Table</title>
+<style>
+  table { border-collapse: collapse; width: 100%; font-family: sans-serif; }
+  th, td { border: 1px solid #999; padding: 8px 12px; text-align: left; }
+  th { background: #eee; }
+  tr:nth-child(even) { background: #f7f7f7; }
+</style>
+</head>
+<body>
+<h1>Test Document 2: Table</h1>
+<p>Checks whether Notion's GitHub sync preserves a structured HTML table and its inline
+&lt;style&gt; block, or flattens it to plain text.</p>
+
+<table>
+  <thead>
+    <tr><th>Item</th><th>Status</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>quadcode</td><td>Pushed</td><td>Private repo, jaysquared5</td></tr>
+    <tr><td>Tasks view</td><td>Branched</td><td>agent-claude/tasks-view, not merged</td></tr>
+    <tr><td>This experiment</td><td>In progress</td><td>Testing Notion + GitHub HTML sync</td></tr>
+  </tbody>
+</table>
+
+<hr>
+<p><small>Marker: DOC-2-TABLE</small></p>
+</body>
+</html>
